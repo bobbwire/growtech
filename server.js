@@ -8,11 +8,12 @@ const app = express();
 // ✅ Middleware
 app.use(
   cors({
-    origin: "https://growtech.vercel.app", // Your Vercel frontend domain
+    origin: "https://growtech-fronted.vercel.app", // your Vercel frontend domain
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
+
 app.use(express.json());
 
 // ✅ Routes
@@ -24,8 +25,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // ✅ MongoDB connection
-const mongoURI =
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/course_applications';
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/course_applications';
 
 mongoose
   .connect(mongoURI, {
